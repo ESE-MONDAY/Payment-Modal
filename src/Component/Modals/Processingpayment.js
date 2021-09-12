@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Loader from "react-loader-spinner";
 import Countdown, { zeroPad } from 'react-countdown';
 import {  Button } from 'react-bootstrap';
-import axios from 'axios';
+
 
 
 //formatting the timer
@@ -16,25 +16,7 @@ const renderer = ({ minutes, seconds}) => {
     
   };
 
-var data = JSON.stringify({"clientid":"QOSTEST","msisdn":"22991547161","amount":1,"transref":"QOS-AYYGYDGGAE1104"});
 
-var config = {
-  method: 'post',
-  url: 'http://74.208.84.251:8221/QosicBridge/po/user/requestpayment',
-  headers: { 
-    'Authorization': 'Basic UVNVU1IzMTphZmNBZzJqbkNWazRhZmNnUk1nVw==', 
-    'Content-Type': 'application/json'
-  },
-  data : data
-};
-
-axios(config)
-.then(function (response) {
-  console.log(JSON.stringify(response.data));
-})
-.catch(function (error) {
-  console.log(error);
-});
 
 export default class Processingpayment extends Component {
     //next modal function
